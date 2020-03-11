@@ -1,10 +1,5 @@
-suresh
-kumar
-reddy
-hai
-suresh
-hai
-capgemini
+suresh  kumar  reddy
+hai  suresh  hai  capgemini
 map
 map class examples
 iterating over maps
