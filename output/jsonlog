@@ -1,0 +1,84 @@
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+20/05/11 22:43:44 INFO SparkContext: Running Spark version 2.3.3
+20/05/11 22:43:45 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+20/05/11 22:43:45 INFO SparkContext: Submitted application: Json_Collection
+20/05/11 22:43:46 INFO SecurityManager: Changing view acls to: skrku
+20/05/11 22:43:46 INFO SecurityManager: Changing modify acls to: skrku
+20/05/11 22:43:46 INFO SecurityManager: Changing view acls groups to: 
+20/05/11 22:43:46 INFO SecurityManager: Changing modify acls groups to: 
+20/05/11 22:43:46 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(skrku); groups with view permissions: Set(); users  with modify permissions: Set(skrku); groups with modify permissions: Set()
+20/05/11 22:43:49 INFO Utils: Successfully started service 'sparkDriver' on port 59270.
+20/05/11 22:43:49 INFO SparkEnv: Registering MapOutputTracker
+20/05/11 22:43:49 INFO SparkEnv: Registering BlockManagerMaster
+20/05/11 22:43:49 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+20/05/11 22:43:49 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+20/05/11 22:43:49 INFO DiskBlockManager: Created local directory at C:\Users\skrku\AppData\Local\Temp\blockmgr-64b00420-7801-4d09-90e2-8f2684cbe277
+20/05/11 22:43:49 INFO MemoryStore: MemoryStore started with capacity 896.4 MB
+20/05/11 22:43:49 INFO SparkEnv: Registering OutputCommitCoordinator
+20/05/11 22:43:50 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+20/05/11 22:43:50 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://DESKTOP-UF264UH:4040
+20/05/11 22:43:50 INFO Executor: Starting executor ID driver on host localhost
+20/05/11 22:43:50 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 59279.
+20/05/11 22:43:50 INFO NettyBlockTransferService: Server created on DESKTOP-UF264UH:59279
+20/05/11 22:43:50 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+20/05/11 22:43:50 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, DESKTOP-UF264UH, 59279, None)
+20/05/11 22:43:50 INFO BlockManagerMasterEndpoint: Registering block manager DESKTOP-UF264UH:59279 with 896.4 MB RAM, BlockManagerId(driver, DESKTOP-UF264UH, 59279, None)
+20/05/11 22:43:50 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, DESKTOP-UF264UH, 59279, None)
+20/05/11 22:43:50 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, DESKTOP-UF264UH, 59279, None)
+root
+ |-- deptno: string (nullable = true)
+ |-- designation: string (nullable = true)
+ |-- empno: string (nullable = true)
+ |-- ename: string (nullable = true)
+ |-- hire_date: string (nullable = true)
+ |-- manager: string (nullable = true)
+ |-- sal: string (nullable = true)
+
+root
+ |-- _corrupt_record: string (nullable = true)
+
+root
+ |-- deptno: string (nullable = true)
+ |-- designation: string (nullable = true)
+ |-- empno: string (nullable = true)
+ |-- ename: string (nullable = true)
+ |-- hire_date: string (nullable = true)
+ |-- manager: string (nullable = true)
+ |-- sal: string (nullable = true)
+
++------+-----------+-----+-----+---------+-------+---+
+|deptno|designation|empno|ename|hire_date|manager|sal|
++------+-----------+-----+-----+---------+-------+---+
++------+-----------+-----+-----+---------+-------+---+
+
++------+-----------+-----+------+----------+-------+----+
+|deptno|designation|empno|ename |hire_date |manager|sal |
++------+-----------+-----+------+----------+-------+----+
+|20    |CLERK      |7369 |SMITH |12/17/1980|7902   |800 |
+|30    |SALESMAN   |7499 |ALLEN |2/20/1981 |7698   |1600|
+|30    |SALESMAN   |7521 |WARD  |2/22/1981 |7698   |1250|
+|20    |MANAGER    |7566 |TURNER|4/2/1981  |7839   |2975|
+|30    |SALESMAN   |7654 |MARTIN|9/28/1981 |7698   |1250|
+|30    |MANAGER    |7698 |MILLER|5/1/1981  |7839   |2850|
+|10    |MANAGER    |7782 |CLARK |6/9/1981  |7839   |2450|
+|20    |ANALYST    |7788 |SCOTT |12/9/1982 |7566   |3000|
+|10    |PRESIDENT  |7839 |KING  |11/17/1981|NULL   |5000|
++------+-----------+-----+------+----------+-------+----+
+
+emp_sgl_df:()
++------+--------------+-----+------+----------+-------+----+
+|deptno|designation   |empno|ename |hire_date |manager|sal |
++------+--------------+-----+------+----------+-------+----+
+|20    |CLERK         |7369 |SMITH |12/17/1980|7902   |800 |
+|30    |SALESMAN      |7499 |ALLEN |2/20/1981 |7698   |1600|
+|30    |SALESMAN      |7521 |WARD  |2/22/1981 |7698   |1250|
+|20    |MANAGER       |7566 |TURNER|4/2/1981  |7839   |2975|
+|30    |SALESMAN      |7654 |MARTIN|9/28/1981 |7698   |1250|
+|30    |MANAGER       |7698 |MILLER|5/1/1981  |7839   |2850|
+|10    |MANAGER       |7782 |CLARK |6/9/1981  |7839   |2450|
+|20    |ANALYST       |7788 |SCOTT |12/9/1982 |7566   |3000|
+|10    |PRESIDENT     |7839 |KING  |11/17/1981|NULL   |5000|
+|70    |VICE_PRESIDENT|7855 |SURESH|11/17/1985|NULL   |4500|
++------+--------------+-----+------+----------+-------+----+
+
+emp_mpl_dfl:()

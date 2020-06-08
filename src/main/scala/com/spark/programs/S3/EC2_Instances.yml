@@ -1,0 +1,105 @@
+
+
+ Parameters:
+      #MyAMIId:
+       # Description: Enter the AMI Id for the instance
+        #Type: String
+        #AllowedValues:
+         # - ami-0470e33cd681b2476
+         # - ami-04b2519c83e2a7ea5
+         #- ami-052c08d70def0ac62
+      MyKeyName:
+        Description: Enter the Key name for the instance
+        Type: AWS::EC2::KeyPair::KeyName
+        AllowedValues:
+          - AWSkey
+          - LinusKey
+          - LinusKey1
+          - myuseastawskey
+      MyEnvironmentType:
+        Description: The environment type
+        Type: String
+        Default: test
+        AllowedValues:
+          - Prod
+          - test
+        ConstraintDescription: must be a prod or test
+      MyRegionType:
+        Description: The Region type
+        Type: String
+        Default: ap-south-1
+        AllowedValues:
+           - us-east-1
+           - us-west-1
+           - ap-south-1
+           - ap-northeast-1
+           - ap-southeast-1
+
+
+ Mappings:
+   RegionAndInstanceTypeToAMIID:
+
+       us-east-1:
+         Prod: ami-0915e09cc7ceee3ab
+         test: ami-04a0ee204b44cc91a
+       us-west-1:
+         Prod: ami-0bdb828fd58c52235
+         test: ami-066ee5fd4a9ef77f1
+       ap-south-1:
+         Prod: ami-0470e33cd681b2476
+         test: ami-04b2519c83e2a7ea5
+       ap-northeast-1:
+         Prod: ami-06cd52961ce9f0d85
+         test: ami-053cdd503598e4a9d
+       ap-southeast-1:
+         Prod: ami-08569b978cc4dfa10
+         test: ami-0be9df32ae9f92309
+ Resources:
+    MyLinuxOSInstance:
+        Type: AWS::EC2::Instance
+        Properties:
+             ImageId: !FindInMap [RegionAndInstanceTypeToAMIID, !Ref MyRegionType,!Ref MyEnvironmentType]
+             InstanceType: t2.micro
+             KeyName: !Ref MyKeyName
+             SecurityGroups:
+                 - default
+                 - !Ref SSHSecurityGroup
+                 - !Ref HTTPSecurityGroup
+             UserData:
+               Fn::Base64:
+                 !Sub |
+                   #!/bin/bash
+                   sudo su
+                   yum update -y
+                   yum install httpd -y
+                   cd /var/www/html
+                   echo "Welcome to my 1st Web app on EC2 Instance" > index.html
+                   service httpd start
+                   chkconfig httpd on
+
+    SSHSecurityGroup:
+       Type: AWS::EC2::SecurityGroup
+       Properties :
+         GroupDescription: this is SG to allow SSH Communication
+         SecurityGroupIngress:
+           - IpProtocol: tcp
+             FromPort: '22'
+             ToPort: '22'
+             CidrIp: 0.0.0.0/0
+    HTTPSecurityGroup:
+         Type: AWS::EC2::SecurityGroup
+         Properties:
+           GroupDescription: this is SG to allow HTTP Communication
+           SecurityGroupIngress:
+             - IpProtocol: tcp
+               FromPort: '80'
+               ToPort: '80'
+               CidrIp: 0.0.0.0/0
+
+ Outputs:
+    InstanceIdofMyInstance:
+       Description: InstanceId of My Linux Instance
+       Value: !Ref MyLinuxOSInstance
+    RegionAMIId:
+      Description: Return the name of the AMI ID that matches the region and environment type keys
+      Value: !FindInMap [RegionAndInstanceTypeToAMIID, !Ref MyRegionType,!Ref MyEnvironmentType]

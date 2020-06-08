@@ -1,0 +1,32 @@
+
+
+ Parameters:
+    MyAction:
+      Description: Action on Failure
+      Type: String
+      Default: CONTINUE
+      AllowedValues:
+        - CANCEL_AND_WAIT
+        - CONTINUE
+
+
+
+ Resources:
+   MyEMRCluster:
+      Type: AWS::EMR::Step
+      Properties:
+          ActionOnFailure: !Ref MyAction
+          HadoopJarStep: !Ref HadoopJarStepConfig
+          Name: SparkAWSEMRCluster
+
+   HadoopJarStepConfig:
+     Type: AWS::EMR::Step
+     Properties:
+       Args: [--master yarn --class spark_aws.GetData ]
+       Jar: s3://sparkjarfiles/SparkAws-1.0-SNAPSHOT.jar
+       MainClass: spark_aws.GetData
+
+
+
+
+

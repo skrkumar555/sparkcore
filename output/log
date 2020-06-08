@@ -1,0 +1,108 @@
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+20/05/17 19:14:58 INFO SparkContext: Running Spark version 2.3.3
+20/05/17 19:14:59 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+20/05/17 19:15:00 INFO SparkContext: Submitted application: Mongo_Collection
+20/05/17 19:15:00 INFO SecurityManager: Changing view acls to: skrku
+20/05/17 19:15:00 INFO SecurityManager: Changing modify acls to: skrku
+20/05/17 19:15:00 INFO SecurityManager: Changing view acls groups to: 
+20/05/17 19:15:00 INFO SecurityManager: Changing modify acls groups to: 
+20/05/17 19:15:00 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(skrku); groups with view permissions: Set(); users  with modify permissions: Set(skrku); groups with modify permissions: Set()
+20/05/17 19:15:05 INFO Utils: Successfully started service 'sparkDriver' on port 62911.
+20/05/17 19:15:05 INFO SparkEnv: Registering MapOutputTracker
+20/05/17 19:15:05 INFO SparkEnv: Registering BlockManagerMaster
+20/05/17 19:15:05 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+20/05/17 19:15:05 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+20/05/17 19:15:05 INFO DiskBlockManager: Created local directory at C:\Users\skrku\AppData\Local\Temp\blockmgr-a1b6ce31-46bd-4958-9b0c-f04e612957bf
+20/05/17 19:15:05 INFO MemoryStore: MemoryStore started with capacity 896.4 MB
+20/05/17 19:15:05 INFO SparkEnv: Registering OutputCommitCoordinator
+20/05/17 19:15:06 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+20/05/17 19:15:06 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://DESKTOP-UF264UH:4040
+20/05/17 19:15:07 INFO Executor: Starting executor ID driver on host localhost
+20/05/17 19:15:07 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 62921.
+20/05/17 19:15:07 INFO NettyBlockTransferService: Server created on DESKTOP-UF264UH:62921
+20/05/17 19:15:07 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+20/05/17 19:15:07 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, DESKTOP-UF264UH, 62921, None)
+20/05/17 19:15:07 INFO BlockManagerMasterEndpoint: Registering block manager DESKTOP-UF264UH:62921 with 896.4 MB RAM, BlockManagerId(driver, DESKTOP-UF264UH, 62921, None)
+20/05/17 19:15:07 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, DESKTOP-UF264UH, 62921, None)
+20/05/17 19:15:07 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, DESKTOP-UF264UH, 62921, None)
+uri is:mongodb://skrkumar:test123@localhost:27017/suresh.post
+uri1 is:mongodb://skrkumar:test123@localhost:27017/suresh.Employee
+root
+ |-- _id: struct (nullable = true)
+ |    |-- oid: string (nullable = true)
+ |-- by: string (nullable = true)
+ |-- comments: array (nullable = true)
+ |    |-- element: struct (containsNull = true)
+ |    |    |-- user: string (nullable = true)
+ |    |    |-- message: string (nullable = true)
+ |    |    |-- dateCreated: timestamp (nullable = true)
+ |    |    |-- like: double (nullable = true)
+ |-- likes: double (nullable = true)
+ |-- tags: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- title: string (nullable = true)
+ |-- url: string (nullable = true)
+
+root
+ |-- Cli_Act: string (nullable = true)
+ |-- Empl_name: string (nullable = true)
+ |-- Grade: string (nullable = true)
+ |-- Inc_Amount: integer (nullable = true)
+ |-- Project: string (nullable = true)
+ |-- Score: double (nullable = true)
+ |-- _id: struct (nullable = true)
+ |    |-- oid: string (nullable = true)
+
++--------------------------+--------+-----------------------------------------------------+-----+--------------------------+--------------------------+----------------------+
+|_id                       |by      |comments                                             |likes|tags                      |title                     |url                   |
++--------------------------+--------+-----------------------------------------------------+-----+--------------------------+--------------------------+----------------------+
+|[5eb573d5ab00d8ad275515ca]|Mongo DB|null                                                 |100.0|[mongodb, database, NoSQL]|MOngoDB is no sql database|http://www.mongodb.org|
+|[5eb573f8ab00d8ad275515cb]|Mongo DB|null                                                 |20.0 |[mongodb, database, NoSQL]|MOngoDB is no sql database|http://www.mongodb.org|
+|[5eb5740bab00d8ad275515cc]|Mongo DB|[[user1, My first comment, 2013-12-10 02:35:00, 0.0]]|50.0 |[mongodb, database, NoSQL]|MOngoDB is no sql database|http://www.mongodb.org|
++--------------------------+--------+-----------------------------------------------------+-----+--------------------------+--------------------------+----------------------+
+
+(data_df:,())
++-------+---------+-----+----------+-------+-----+--------------------------+
+|Cli_Act|Empl_name|Grade|Inc_Amount|Project|Score|_id                       |
++-------+---------+-----+----------+-------+-----+--------------------------+
+|BT     |Suresh   |A    |55000     |BTTV   |4.1  |[5eb571d5ab00d8ad275515c7]|
+|BT     |Raja     |A    |55000     |BTAPP  |3.8  |[5eb571feab00d8ad275515c8]|
+|BT     |Dhanu    |A    |55000     |BTSTB  |3.5  |[5eb5734bab00d8ad275515c9]|
+|BT     |Raju     |B    |35000     |BTST   |3.2  |[5eb57ff4ab00d8ad275515cd]|
+|BT     |kumar    |B    |35000     |BTEC   |3.1  |[5eb5839b92f2cba270ab4673]|
+|BT     |Abhishek |B    |35000     |BTBB   |3.0  |[5eb6b940022b20506aa94519]|
+|BT     |Ravi     |null |null      |BTAPP  |4.5  |[5ec13ed29b7f5eeb73b6c91a]|
++-------+---------+-----+----------+-------+-----+--------------------------+
+
+(diff_coll_df,())
++--------------------------+--------+-----------------------------------------------------+-----+--------------------------+--------------------------+----------------------+
+|_id                       |by      |comments                                             |likes|tags                      |title                     |url                   |
++--------------------------+--------+-----------------------------------------------------+-----+--------------------------+--------------------------+----------------------+
+|[5eb573d5ab00d8ad275515ca]|Mongo DB|null                                                 |100.0|[mongodb, database, NoSQL]|MOngoDB is no sql database|http://www.mongodb.org|
+|[5eb573f8ab00d8ad275515cb]|Mongo DB|null                                                 |20.0 |[mongodb, database, NoSQL]|MOngoDB is no sql database|http://www.mongodb.org|
+|[5eb5740bab00d8ad275515cc]|Mongo DB|[[user1, My first comment, 2013-12-10 02:35:00, 0.0]]|50.0 |[mongodb, database, NoSQL]|MOngoDB is no sql database|http://www.mongodb.org|
++--------------------------+--------+-----------------------------------------------------+-----+--------------------------+--------------------------+----------------------+
+
+final_data:()
++-------+---------+-----+----------+-------+-----+--------------------------+
+|Cli_Act|Empl_name|Grade|Inc_Amount|Project|Score|_id                       |
++-------+---------+-----+----------+-------+-----+--------------------------+
+|BT     |Raju     |B    |35000     |BTST   |3.2  |[5eb57ff4ab00d8ad275515cd]|
+|BT     |kumar    |B    |35000     |BTEC   |3.1  |[5eb5839b92f2cba270ab4673]|
+|BT     |Abhishek |B    |35000     |BTBB   |3.0  |[5eb6b940022b20506aa94519]|
++-------+---------+-----+----------+-------+-----+--------------------------+
+
+data_gr:()
++-------+---------+-----+----------+-------+-----+--------------------------+
+|Cli_Act|Empl_name|Grade|Inc_Amount|Project|Score|_id                       |
++-------+---------+-----+----------+-------+-----+--------------------------+
+|BT     |Raju     |B    |35000     |BTST   |3.2  |[5eb57ff4ab00d8ad275515cd]|
+|BT     |kumar    |B    |35000     |BTEC   |3.1  |[5eb5839b92f2cba270ab4673]|
+|BT     |Abhishek |B    |35000     |BTBB   |3.0  |[5eb6b940022b20506aa94519]|
+|BT     |Suresh   |A    |55000     |BTTV   |4.1  |[5eb571d5ab00d8ad275515c7]|
+|BT     |Raja     |A    |55000     |BTAPP  |3.8  |[5eb571feab00d8ad275515c8]|
+|BT     |Dhanu    |A    |55000     |BTSTB  |3.5  |[5eb5734bab00d8ad275515c9]|
+|BT     |Ravi     |A    |55000     |BTAPP  |4.5  |[5ec13ed29b7f5eeb73b6c91a]|
++-------+---------+-----+----------+-------+-----+--------------------------+
+
+final_res_df:()
