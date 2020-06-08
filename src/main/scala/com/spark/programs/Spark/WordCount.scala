@@ -6,6 +6,16 @@ import java.util.Calendar
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.hadoop.mapred.{FileAlreadyExistsException, InvalidInputException}
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkConf
+import org.apache.spark.sql.{DataFrame, SQLContext, SparkSession, functions}
+import org.apache.spark._
+import org.apache.spark.storage.StorageLevel
+import org.apache.spark.internal.config
+import org.apache.spark.sql.expressions.Window
+import org.apache.spark.sql.functions.lit
+
+
 
 ////
 
@@ -22,6 +32,7 @@ object WordCount {
       val input: RDD[String] = sc.textFile("words.txt")
       val words = input.flatMap(lines => lines.split(" "))
       val counts = words.map(word => (word, 1)).reduceByKey(_ + _)
+
       try {
         counts.saveAsTextFile("/C:/Users/skrku/IdeaProjects/sparkcore/output/"+UD)
         System.out.println("spark program worked")

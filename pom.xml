@@ -33,11 +33,39 @@
         <artifactId>config</artifactId>
         <version>1.4.0</version>
     </dependency>
-
-
-
-
-
+    <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+    <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-s3</artifactId>
+        <version>1.11.743</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.typesafe.play/play -->
+    <dependency>
+        <groupId>com.typesafe.play</groupId>
+        <artifactId>play_2.12</artifactId>
+        <version>2.6.25</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.scalafx/scalafx -->
+    <dependency>
+        <groupId>org.scalafx</groupId>
+        <artifactId>scalafx_2.11</artifactId>
+        <version>8.0.40-R8</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.stratio.datasource/spark-mongodb -->
+    <!-- https://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector -->
+    <dependency>
+        <groupId>org.mongodb.spark</groupId>
+        <artifactId>mongo-spark-connector_2.11</artifactId>
+        <version>2.4.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>15.0</version>
+    </dependency>
 </dependencies>
-
+    <build>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
+    </build>
 </project>
