@@ -18,8 +18,8 @@ object AmazonS3FileUpload extends App {
   val bucketName = "sureshskr"
   val fileToUpload = new File("C:\\Users\\skrku\\OneDrive\\Documents\\New folder\\Sureshkumar_hadoop_resume.docx")
 
-  val AWS_ACCESS_KEY = "AKIAIILOOV7RNT67M5CQ"
-  val AWS_SECRET_KEY = "Gy+5XFCf8SS4X41VnlHeyPDgu00eiFddgmXRsiTU"
+  val AWS_ACCESS_KEY = ""
+  val AWS_SECRET_KEY = ""
 
   val yourAWSCredentials = new BasicAWSCredentials(AWS_ACCESS_KEY, AWS_SECRET_KEY)
   val amazonS3Client = new AmazonS3Client(yourAWSCredentials)
