@@ -1,0 +1,7 @@
+Day1 : Descriptive statistics, Probability theory & Distribution
+Day2 : Python for Data Analytics
+Day3 : Python for Data, Hypothesis test
+Day4 : Linear  Regression
+Day5 : Logistic Regression
+
+5555
